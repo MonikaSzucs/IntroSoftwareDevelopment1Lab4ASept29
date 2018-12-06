@@ -8,6 +8,7 @@
 public class RoyalBankAccount
 {
     // instance variables
+    private static final    double  MAX_DEPOSITE = 10000.0;
     private static final    String  MOTTO = "You're Poorer than you think.";
     private static          double  primeInterestRate = 0.025;
     private                 double  personalInterestRate;
@@ -167,15 +168,28 @@ public class RoyalBankAccount
     }
     
     public void deposit(double theDeposit){
-        if(theDeposit <= 0){
+        /** My old way
+            if(theDeposit <= 0.0){
         return;
         }
         
-        if(theDeposit > 10000){
+        if(theDeposit > MAX_DEPOSITE){
         System.out.println("The manger will be contacting you. Thank you for your deposit.");
         }
         
         balanceUSD = (balanceUSD + theDeposit);
+        */
+        
+        if(depositUSD>0.0){
+            balanceUSD = balanceUSD + theDeposite;
+            
+            if(depositeUSD > MAX_DEPOSITE){
+                System.out.println("The manager will be contacting you. Thannk you for your deposite.");
+            }
+        }
+        else{
+            throw new IllegalArgumentException("Negative deposite not allowed");
+        }
     }
     
     public double getPrimeInterestRate(){
